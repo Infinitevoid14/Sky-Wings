@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking — SkyWings Airlines</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <span>&#128222; +1 (555) 987-6543</span>
+          <span>&#9993;&#65039; support@skywings.gmail.com</span>
+        </div>
+        <div class="topbar-links">
+          <a href="my-booking.html">Manage Booking</a>
+          <a href="check-in.html">Check-in</a>
+          <a href="flight-status.html">Flight Status</a>
+        </div>
+      </div>
+    </div>
+    <header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="index.html">
+            <svg class="logo-mark" width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="17" cy="17" r="17" fill="#0a6cff"/>
+                <path d="M17 6 L21 15 L29 17 L21 19 L17 28 L13 19 L5 17 L13 15 Z" fill="#fff"/>
+            </svg>
+            <span class="logo-word">SkyWings</span>
+        </a>
+        <nav class="navbar">
+        <span class="menu-toggle" id="menu-toggle">☰</span>
+        <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+        <li><a href="my-booking.html">My Trips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        <a class="cta" href="booking.html">Book Now</a>
+    </div>
+    </header>
+
+    <main class="container" style="padding:40px 0;">
+        <div class="section-head">
+            <span class="eyebrow">Reservations</span>
+            <h1 style="margin-bottom:6px;">Book Your Flight</h1>
+            <p>Search, choose your flight and fare, pick your seat, add extras, and pay — all in one flow.</p>
+        </div>
+
+        <ol class="wizard-progress" id="wizard-progress">
+            <li class="current" data-step="1">Search</li>
+            <li data-step="2">Flights</li>
+            <li data-step="3">Fare</li>
+            <li data-step="4">Seats</li>
+            <li data-step="5">Details</li>
+            <li data-step="6">Payment</li>
+        </ol>
+
+        <div class="wizard-layout">
+            <div class="wizard-panel">
+
+                <!-- Step 1: Search -->
+                <section class="wizard-step active" data-step="1">
+                    <h2>Where are you flying?</h2>
+                    <div class="trip-type">
+                        <button type="button" class="active" data-trip="round">Round trip</button>
+                        <button type="button" data-trip="oneway">One way</button>
+                    </div>
+                    <div class="form-grid">
+                        <div>
+                            <label for="from-city">From</label>
+                            <select id="from-city"></select>
+                        </div>
+                        <div>
+                            <label for="to-city">To</label>
+                            <select id="to-city"></select>
+                        </div>
+                        <div>
+                            <label for="depart-date">Depart</label>
+                            <input type="date" id="depart-date">
+                        </div>
+                        <div id="return-date-wrap">
+                            <label for="return-date">Return</label>
+                            <input type="date" id="return-date">
+                        </div>
+                        <div>
+                            <label>Passengers</label>
+                            <div class="stepper-field">
+                                <button type="button" data-adj="adults" data-dir="-1">−</button>
+                                <span id="adults-count">1</span>
+                                <span class="small" style="color:#8199ad;">Adults</span>
+                                <button type="button" data-adj="adults" data-dir="1">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label>&nbsp;</label>
+                            <div class="stepper-field">
+                                <button type="button" data-adj="children" data-dir="-1">−</button>
+                                <span id="children-count">0</span>
+                                <span class="small" style="color:#8199ad;">Children</span>
+                                <button type="button" data-adj="children" data-dir="1">+</button>
+                            </div>
+                        </div>
+                        <div class="full">
+                            <label for="cabin-class">Cabin</label>
+                            <select id="cabin-class">
+                                <option value="economy">Economy</option>
+                                <option value="premium">Premium Economy</option>
+                                <option value="business">Business</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p id="search-error" class="small" style="color:#e0473e;display:none;margin-top:10px;"></p>
+                    <div class="wizard-actions">
+                        <span></span>
+                        <button class="btn btn-primary" id="to-step-2">Search Flights</button>
+                    </div>
+                </section>
+
+                <!-- Step 2: Flight results -->
+                <section class="wizard-step" data-step="2">
+                    <h2>Choose your flight</h2>
+                    <p class="small" style="color:#8199ad;" id="results-summary"></p>
+                    <div id="flight-results"></div>
+                    <div class="wizard-actions">
+                        <button class="btn btn-ghost" data-back="1">Back</button>
+                        <button class="btn btn-primary" id="to-step-3" disabled>Continue to Fare</button>
+                    </div>
+                </section>
+
+                <!-- Step 3: Fare type -->
+                <section class="wizard-step" data-step="3">
+                    <h2>Choose your fare</h2>
+                    <p class="small" style="color:#8199ad;">Prices shown are per passenger, applied to your selected flight.</p>
+                    <div class="fare-grid" id="fare-grid"></div>
+                    <div class="wizard-actions">
+                        <button class="btn btn-ghost" data-back="2">Back</button>
+                        <button class="btn btn-primary" id="to-step-4" disabled>Continue to Seats</button>
+                    </div>
+                </section>
+
+                <!-- Step 4: Seats -->
+                <section class="wizard-step" data-step="4">
+                    <h2>Pick your seat<span id="seat-count-label"></span></h2>
+                    <p class="small" style="color:#8199ad;">Select <strong id="seats-needed">1</strong> seat(s). Business and Premium rows cost extra.</p>
+                    <div class="seat-map" id="seat-map"></div>
+                    <div class="seat-legend">
+                        <span><i class="legend-swatch" style="background:#eef2ff;border:1px solid #c7d8ff;"></i>Business (+$120)</span>
+                        <span><i class="legend-swatch" style="background:#fff3ea;border:1px solid #ffcaa8;"></i>Premium (+$35)</span>
+                        <span><i class="legend-swatch" style="background:#f4f8fc;border:1px solid #cfe0f0;"></i>Economy</span>
+                        <span><i class="legend-swatch" style="background:#e3e8ee;"></i>Taken</span>
+                        <span><i class="legend-swatch" style="background:#0a6cff;"></i>Selected</span>
+                    </div>
+                    <div class="wizard-actions">
+                        <button class="btn btn-ghost" data-back="3">Back</button>
+                        <button class="btn btn-primary" id="to-step-5" disabled>Continue to Details</button>
+                    </div>
+                </section>
+
+                <!-- Step 5: Passenger details + extras -->
+                <section class="wizard-step" data-step="5">
+                    <h2>Passenger details</h2>
+                    <p class="small" style="color:#8199ad;">Enter names exactly as shown on each passenger's ID or passport.</p>
+                    <div class="passenger-form-list" id="passenger-form-list"></div>
+
+                    <h3 style="margin-top:22px;">Contact details</h3>
+                    <div class="form-grid">
+                        <div>
+                            <label for="pax-email">Email</label>
+                            <input type="email" id="pax-email" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="pax-phone">Phone</label>
+                            <input type="tel" id="pax-phone" placeholder="+1 555 000 0000">
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:22px;">Add extras</h3>
+                    <div class="extras-list">
+                        <div class="extra-item">
+                            <div><label><input type="checkbox" id="extra-bag"> Checked bag (23kg)</label><div class="extra-desc" id="bag-desc">Per passenger</div></div>
+                            <div class="extra-price" id="bag-price">$40</div>
+                        </div>
+                        <div class="extra-item">
+                            <div><label><input type="checkbox" id="extra-meal"> In-flight meal upgrade</label><div class="extra-desc">Per passenger</div></div>
+                            <div class="extra-price">$15</div>
+                        </div>
+                        <div class="extra-item">
+                            <div><label><input type="checkbox" id="extra-insurance"> Travel insurance</label><div class="extra-desc">Covers trip cancellation, delay & medical, per passenger</div></div>
+                            <div class="extra-price">$25</div>
+                        </div>
+                    </div>
+                    <p id="details-error" class="small" style="color:#e0473e;display:none;margin-top:10px;"></p>
+                    <div class="wizard-actions">
+                        <button class="btn btn-ghost" data-back="4">Back</button>
+                        <button class="btn btn-primary" id="to-step-6">Continue to Payment</button>
+                    </div>
+                </section>
+
+                <!-- Step 6: Payment -->
+                <section class="wizard-step" data-step="6">
+                    <div id="payment-content"></div>
+                </section>
+
+            </div>
+
+            <aside class="summary-card">
+                <h3>Your trip</h3>
+                <div id="summary-body"><p class="summary-empty">Search a route to see your fare summary here.</p></div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff;">SkyWings Airlines</h3>
+      <p class="small">Fly Beyond with Safety and Comfort.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="X">x</a>
+      </div>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4>Travel</h4>
+      <div class="footer-links">
+        <a href="booking.html">Book a Flight</a>
+        <a href="check-in.html">Online Check-in</a>
+        <a href="flight-status.html">Flight Status</a>
+        <a href="my-booking.html">Manage Booking</a>
+      </div>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Carriage</a>
+      </div>
+      <div class="small" style="margin-top:14px;">support@skywings.gmail.com<br>+1 (555) 987-6543</div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 SkyWings Airlines. All rights reserved.</span>
+    <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="js/routes-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

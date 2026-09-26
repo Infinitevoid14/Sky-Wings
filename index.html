@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWings Airlines — Fly Beyond</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <span>&#128222; +1 (555) 987-6543</span>
+          <span>&#9993;&#65039; support@skywings.gmail.com</span>
+        </div>
+        <div class="topbar-links">
+          <a href="my-booking.html">Manage Booking</a>
+          <a href="check-in.html">Check-in</a>
+          <a href="flight-status.html">Flight Status</a>
+        </div>
+      </div>
+    </div>
+    <header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="index.html">
+            <svg class="logo-mark" width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="17" cy="17" r="17" fill="#0a6cff"/>
+                <path d="M17 6 L21 15 L29 17 L21 19 L17 28 L13 19 L5 17 L13 15 Z" fill="#fff"/>
+            </svg>
+            <span class="logo-word">SkyWings</span>
+        </a>
+        <nav class="navbar">
+        <span class="menu-toggle" id="menu-toggle">☰</span>
+        <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="my-booking.html">My Trips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        <a class="cta" href="booking.html">Book Now</a>
+    </div>
+    </header>
+
+    <main class="container">
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Fly Beyond with Comfort and Safety</h1>
+      <p>SkyWings Airlines connects you to 18 destinations across 6 regions with top-class comfort, safety, and affordable fares.</p>
+      <div class="hero-cta">
+        <a href="booking.html" class="primary">Book a Flight</a>
+        <a href="destinations.html" class="secondary">Explore Destinations</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://picsum.photos/seed/swa-hero/900/700" alt="SkyWings flight">
+    </div>
+  </section>
+
+  <form class="hero-search fade-in" id="hero-search-form" action="booking.html" method="get">
+    <div class="trip-type">
+      <label><input type="radio" name="trip" value="round" checked style="margin-right:6px;">Round trip</label>
+      <label><input type="radio" name="trip" value="oneway" style="margin-right:6px;">One way</label>
+    </div>
+    <div class="hero-search-grid">
+      <div>
+        <label for="hs-from">From</label>
+        <select id="hs-from" name="from"></select>
+      </div>
+      <div>
+        <label for="hs-to">To</label>
+        <select id="hs-to" name="to"></select>
+      </div>
+      <div>
+        <label for="hs-date">Depart</label>
+        <input type="date" id="hs-date" name="date">
+      </div>
+      <div>
+        <label for="hs-cabin">Cabin</label>
+        <select id="hs-cabin" name="cabin">
+          <option value="economy">Economy</option>
+          <option value="premium">Premium Economy</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Search Flights</button>
+    </div>
+  </form>
+  <section class="features fade-in">
+    <div class="feature"><h3>Global Routes</h3><p>150+ destinations across 6 continents.</p></div>
+    <div class="feature"><h3>Premium Comfort</h3><p>In-Flight Entertainment, larger seats with more recline, and  upgraded meal services.</p></div>
+    <div class="feature"><h3>Trusted Safety</h3><p>Unmatched safety record with advanced fleet technology.</p></div>
+  </section>
+
+  <section class="stats-bar fade-in">
+    <div class="stat"><strong>18</strong><span>Destinations</span></div>
+    <div class="stat"><strong>6</strong><span>Regions served</span></div>
+    <div class="stat"><strong>98.7%</strong><span>On-time performance</span></div>
+    <div class="stat"><strong>2M+</strong><span>Passengers a year</span></div>
+  </section>
+
+  <div class="section-head">
+    <span class="eyebrow">Fly there next</span>
+    <h2 style="margin-bottom:6px;">Popular Destinations</h2>
+    <p>A few favorites from our 18-city network — see fares and days flown for all of them.</p>
+  </div>
+  <section class="card-grid slider">
+    <a class="card" href="booking.html?to=Tokyo" style="text-decoration:none;color:inherit;">
+        <img src="https://picsum.photos/seed/swa-tokyo/600/400" alt="Tokyo skyline" loading="lazy">
+        <div class="card-body">
+            <h4>Tokyo</h4>
+            <p>Seamless connections to Asia with daily flights.</p>
+        </div>
+    </a>
+    <a class="card" href="booking.html?to=London" style="text-decoration:none;color:inherit;">
+        <img src="https://picsum.photos/seed/swa-london/600/400" alt="London city view" loading="lazy">
+        <div class="card-body">
+            <h4>London</h4>
+            <p>Daily flights from New York, Dubai, Singapore.</p>
+        </div>
+    </a>
+    <a class="card" href="booking.html?to=Paris" style="text-decoration:none;color:inherit;">
+        <img src="https://picsum.photos/seed/swa-paris/600/400" alt="Paris city view" loading="lazy">
+        <div class="card-body">
+            <h4>Paris</h4>
+            <p>Experience the city of lights with SkyWings premium comfort.</p>
+        </div>
+    </a>
+    <a class="card" href="booking.html?to=Dubai" style="text-decoration:none;color:inherit;">
+        <img src="https://picsum.photos/seed/swa-dubai/600/400" alt="Dubai skyline" loading="lazy">
+        <div class="card-body">
+            <h4>Dubai</h4>
+            <p>The hub of the Middle East, daily nonstop service.</p>
+        </div>
+    </a>
+    <a class="card" href="booking.html?to=Beijing" style="text-decoration:none;color:inherit;">
+        <img src="https://picsum.photos/seed/swa-china/600/400" alt="Beijing cityscape" loading="lazy">
+        <div class="card-body">
+            <h4>Beijing</h4>
+            <p>Explore the city of culture with SkyWings comfort.</p>
+        </div>
+    </a>
+  </section>
+  <div style="text-align:center;margin:10px 0 30px;">
+    <a href="destinations.html" class="secondary" style="display:inline-block;">View all 18 destinations</a>
+  </div>
+
+  <div class="section-head" style="margin-top:20px;">
+    <span class="eyebrow">The SkyWings Difference</span>
+    <h2 style="margin-bottom:6px;">Why Fly With Us</h2>
+  </div>
+  <section class="why-grid fade-in">
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h4>Safety First</h4>
+      <p>Advanced fleet technology and an unmatched safety record.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎫</div>
+      <h4>Flexible Booking</h4>
+      <p>Manage, track, and review your trips anytime in My Trips.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🍽️</div>
+      <h4>Premium Comfort</h4>
+      <p>In-flight entertainment, larger seats, and upgraded meals.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💬</div>
+      <h4>24/7 Support</h4>
+      <p>Real people, ready to help before, during, and after your flight.</p>
+    </div>
+  </section>
+
+  <div class="section-head" style="margin-top:20px;">
+    <span class="eyebrow">Traveler Stories</span>
+    <h2 style="margin-bottom:6px;">What Our Passengers Say</h2>
+  </div>
+  <section class="testimonial-grid fade-in">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Booking was quick and the seat map made it easy to pick exactly where I wanted to sit."</p>
+      <div class="testimonial-who">
+        <img src="https://picsum.photos/seed/swa-review-amara/100/100" alt="Amara O.">
+        <div><strong>Amara O.</strong><span>Lagos → London</span></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Loved being able to track my flight status right from the My Trips page before heading to the airport."</p>
+      <div class="testimonial-who">
+        <img src="https://picsum.photos/seed/swa-review-daniel/100/100" alt="Daniel K.">
+        <div><strong>Daniel K.</strong><span>New York → Tokyo</span></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Comfortable cabin, friendly crew, and genuinely on time. SkyWings is now my first choice."</p>
+      <div class="testimonial-who">
+        <img src="https://picsum.photos/seed/swa-review-priya/100/100" alt="Priya S.">
+        <div><strong>Priya S.</strong><span>Mumbai → Dubai</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner fade-in" style="margin:50px 0;">
+    <div>
+      <h2>Get fare alerts for your favorite routes</h2>
+      <p>Join our mailing list for fare drops, new destinations, and travel tips — no spam, just useful updates.</p>
+    </div>
+    <form id="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit" class="btn" style="background:#ff5722;color:#fff;">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff;">SkyWings Airlines</h3>
+      <p class="small">Fly Beyond with Safety and Comfort.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="X">x</a>
+      </div>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4>Travel</h4>
+      <div class="footer-links">
+        <a href="booking.html">Book a Flight</a>
+        <a href="check-in.html">Online Check-in</a>
+        <a href="flight-status.html">Flight Status</a>
+        <a href="my-booking.html">Manage Booking</a>
+      </div>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Carriage</a>
+      </div>
+      <div class="small" style="margin-top:14px;">support@skywings.gmail.com<br>+1 (555) 987-6543</div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 SkyWings Airlines. All rights reserved.</span>
+    <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+<script src="js/routes-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home-search.js"></script>
+</body>
+</html>
